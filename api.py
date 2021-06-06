@@ -1,11 +1,12 @@
-from flask import Flask, jsonify, request
+from flask import Flask, json, jsonify, request
 import search
 
 app = Flask(__name__)
 
-@app.get('/')
+@app.post('/')
 def main_endpoint():
-    pass
+    data = request.get_json()
+    return jsonify(data)
 
 if __name__ == "__main__":
-    app.run()
+    app.run(debug=True)
