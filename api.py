@@ -5,7 +5,10 @@ app = Flask(__name__)
 
 @app.post('/')
 def main_endpoint():
-    data = request.get_json()
+    input_data = request.get_json()
+    keyword = input_data['keyword']
+    data = search.gather_data(keyword)
+    
     return jsonify(data)
 
 if __name__ == "__main__":
