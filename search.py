@@ -22,8 +22,8 @@ def search_leet(keyword):
 
 def get_magnets(url):
     url = "https://1337x.to" + url 
-    scraper = cloudscraper.create_scraper(browser={'browser' : 'chrome', 'platform' : 'windows'})
-    response = scraper.get(url)
+    #scraper = cloudscraper.create_scraper(browser={'browser' : 'chrome', 'platform' : 'windows'})
+    response = requests.get(url, headers={'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:88.0) Gecko/20100101 Firefox/88.0'})
     content = BeautifulSoup(response.content, 'lxml')
     links = content.findAll('a')
     for link in links:
