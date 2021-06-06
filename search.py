@@ -29,10 +29,4 @@ def get_magnets(url):
     for link in links:
         if 'magnet' in link['href']:
             return link['href']
-
-if __name__ == "__main__":
-    results = search_leet("v for vendetta")
-    magnets = get_magnets(results[0]['url'])
-
-    print(magnets)
     
