@@ -29,4 +29,19 @@ def get_magnets(url):
     for link in links:
         if 'magnet' in link['href']:
             return link['href']
+
+def gather_data(keyword):
+    urls = search_leet(keyword)
+    data_gathered = []
+
+    for url in urls:
+        magnet = get_magnets(url['url'])
+        url_data = {
+            "url" : url['url'],
+            "title": url['title'],
+            "magnet": magnet
+        }
+
+        data_gathered.append(url_data)
     
+    return data_gathered
